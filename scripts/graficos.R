@@ -616,44 +616,6 @@ print(g_codo)
 
 # 4 a 6 (6 y 7 son básicamente iguales)
 
-# GRAFICO 12 (OPCIONAL): DENDROGRAMA - METODO JERARQUICO ----
-
-# #Calcular la matriz de distancias (usando los primeros 3 PCs)
-# dist_matrix <- dist(pca$x[, 1:num_comp], method = "euclidean")
-# 
-# # Aplicar clustering jerárquico con método de enlace (ward.D2 minimiza varianza dentro de los clusters)
-# hclust(dist_matrix, method = "ward.D2")
-# 
-# # Graficar el dendrograma
-# plot(hc, main = "Dendrograma - Clustering Jerárquico",
-#      sub = "", xlab = "", cex = 0.7)
-# 
-# #Nos confirma que 3 cluster son suficientes para nuestros objetivos
-# rect.hclust(hc, k = 4, border = "red")  # Cambia k según el número de clusters deseado
-# 
-# # Convertir el objeto hclust a dendrograma
-# dend <- as.dendrogram(hc)
-# 
-# 
-# # Convertir hclust a dendrograma y luego a formato compatible con ggplot2
-# dend_data <- ggdendro::dendro_data(as.dendrogram(hc))
-# 
-# # Crear el gráfico con ggplot2
-# g_dendro <- ggplot() +
-#   geom_segment(data = dend_data$segments, aes(x = x, y = y, xend = xend, yend = yend),
-#                color = nord_aurora_colors$grid, size = 1) +  # Color de líneas y grosor
-#   geom_hline(yintercept = 33, linetype = "dashed", color = nord_palette[2], size = 1, alpha = 0.5) +  # Línea horizontal
-#   labs(title = "Dendrograma con Clustering Jerárquico", 
-#        y = "Distancia") +
-#   theme_minimal() +
-#   theme(
-#     axis.text.x = element_blank(),  # Ocultar etiquetas del eje X
-#     axis.ticks.x = element_blank(),  # Ocultar marcas del eje X
-#     panel.grid = element_blank(),  
-#     plot.title = element_text(hjust = 0.5)  
-#   )
-
-
 # ---- K-MEANS ----
 # El método del codo nos dice que deberíamos usar 4 a 7 K
 # En un proceso iterativo, probaremos de 2 a 7 para ver que tal es su desempeño en silueta
@@ -819,12 +781,6 @@ g_heatmap <- ggplot(caract_cluster_norm_filtrado, aes(x = Variable, y = as.facto
         legend.position = "right")
 
 # GRAFICO 15 (OPCIONAL): Grafico de Barras con variables por cluster----
-## AQUI FALTAN GRAFICOS DE BOXPLOT POR EJ
-## PARA VER LAS CARACTERISTICAS PERO EN NUMERICAS
-## PUNTAJES SIMCE
-## GENERO
-## ETC
-
 # Grafico de barras de caracteristicas de cluster
 g_pesos_cluster <- ggplot(caract_cluster_l, aes(x = Variable, y = promedio, fill = factor(cluster))) +
   geom_bar(stat = "identity", position = "dodge") +
