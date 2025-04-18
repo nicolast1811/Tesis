@@ -1,6 +1,9 @@
 # Tesis
+
 Autor: Nicolás Torres Hormazábal
+
 Profesor Guía: Ignacio Larraguibel
+
 Otoño 2025
 
 Scripts y archivos para la elaboración en R Studio de la tesis de pregrado "Desmunicipalización y gestión educativa: un estudio sobre la implementación de los Servicios Locales de Educación Pública"
