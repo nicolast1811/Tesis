@@ -10,7 +10,7 @@ Scripts y archivos para la elaboración en R Studio de la tesis de pregrado "Des
 
 Archivos adicionales para que funcione el código:
 
-* El archivo .RDat: https://drive.google.com/file/d/1LZ6Pn-sAYHJ6ZH2CFqquow__UDm98lvo/view?usp=sharing
+* El archivo .RData: https://drive.google.com/file/d/1LZ6Pn-sAYHJ6ZH2CFqquow__UDm98lvo/view?usp=sharing
 * Las carpetas con la data utilizada: https://drive.google.com/drive/folders/1OowhgqxmE9QA7sKml74YWixqmVcn9a6Q?usp=sharing
 
 En caso de que no funcione, también existe una versión .zip del código fuente utilizado, que se puede descargar de la siguiente URL:
