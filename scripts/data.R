@@ -1,16 +1,16 @@
 # ---- LIBRERÍAS Y FUNCIONES ----
 # Función para verificar, instalar y cargar paquetes
-instalar_y_cargar <- function(paquetes) {
-  paquetes_faltantes <- paquetes[!paquetes %in% installed.packages()[,"Package"]]
-  
-  if (length(paquetes_faltantes) > 0) {
-    message("Instalando paquetes faltantes: ", paste(paquetes_faltantes, collapse = ", "))
-    install.packages(paquetes_faltantes, dependencies = TRUE)
+cargar_paquetes <- function(paquetes) {
+  # Instalar los que no estén instalados
+  paquetes_no_instalados <- paquetes[!paquetes %in% installed.packages()[, "Package"]]
+  if (length(paquetes_no_instalados) > 0) {
+    install.packages(paquetes_no_instalados)
   }
   
   # Cargar todos los paquetes
-  lapply(paquetes, library, character.only = TRUE)
+  invisible(lapply(paquetes, require, character.only = TRUE))
 }
+
 # Función para cargar los datos de distintas carpetas
 cargar_datos <- function(anio_inicio, anio_fin, archivo, filtrar = TRUE){
   anios <- anio_inicio:anio_fin
@@ -203,7 +203,7 @@ paquetes_necesarios <- c(
   "here", "readxl", "dplyr", "ggplot2", "tidyr", "readr", "glue", "stringr", "scales",
   "kableExtra", "factoextra", "cluster", "pacman", "DescTools", "ggdendro", "showtext"
 )
-instalar_y_cargar(paquetes_necesarios)
+cargar_paquetes(paquetes_necesarios)
 set_here(getwd())
 # Raíz de here(), muy útil para las cargas automatizadas de BBDD 
 here()
@@ -443,4 +443,5 @@ simce_total_excluidos <- bind_rows(lapply(names(simce_filtrado_no_slep), functio
 
 # Asegurar tipo de dato para join si fuera necesario más adelante
 simce_total_excluidos$RBD <- as.integer(simce_total_excluidos$RBD)
+
 
