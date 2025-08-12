@@ -8,6 +8,12 @@ Otoño 2025
 
 Scripts y archivos para la elaboración en R Studio de la tesis de pregrado "Desmunicipalización y gestión educativa: un estudio sobre la implementación de los Servicios Locales de Educación Pública"
 
+Para reproducir este código, hay que seguir este orden de ejecución de los scripts:
+- data.R
+- graficos.R
+- tablas.R
+Esto se realiza automáticamente en el archivo tesis_ver_final.Rmd
+
 Archivos adicionales para que funcione el código:
 
 El archivo .RData:
